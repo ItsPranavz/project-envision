@@ -39,7 +39,7 @@ class RedFocusFilter:
         self.canvas.image = photo
 
         # Update the overlay less frequently to prevent flickering
-        self.root.after(10, self.update_overlay)  # 1-second interval
+        self.root.after(50, self.update_overlay)  # 50ms interval
 
     def click_through(self, event):
         x, y = self.root.winfo_pointerxy()
@@ -49,7 +49,7 @@ class RedFocusFilter:
         pyautogui.click(x, y)  # Perform the click at the current pointer position
 
         # Bring the overlay back immediately with minimal delay
-        self.root.after(10, self.root.deiconify)  # Delay shortened to 50ms for smoother experience
+        self.root.after(10, self.root.deiconify)  # Delay shortened to 10ms for smoother experience
 
     def exit_program(self):
         self.root.quit()
